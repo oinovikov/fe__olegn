@@ -1,10 +1,10 @@
 {
-  "name": "fe__template",
-  "version": "1.1.0",
+  "name": "fe__olegn",
+  "version": "1.0.0",
   "description": "My own template for front-end development",
   "repository": {
     "type": "git",
-    "url": "https://github.com/oinovikov/fe__template"
+    "url": "https://github.com/oinovikov/fe__olegn"
   },
   "keywords": [
     "front-end",
