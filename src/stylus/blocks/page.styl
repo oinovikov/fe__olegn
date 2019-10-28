@@ -15,7 +15,7 @@
   border: none
   border-collapse: collapse
   outline: none
-  background: $pageLayout.bgColor.light
+  background: $pageLayout.bgColor
   font-size: 100%
   text-size-adjust: 100%
   overflow-x: auto
@@ -25,7 +25,7 @@
   transition: background-color .24s linear
   caret-color: #03a9f4
 
-  selection(#81d4fa, #111)
+  selection(#ff6f61, #212121)
 
   @media all and (min-width: 0)
     display: block
@@ -41,7 +41,7 @@
     pointer-events: none
 
   &_theme_dark
-    background-color: $pageLayout.bgColor.dark
+    background-color: $pageLayout.bgColor
 
     selection(#01579b, #eee)
 
@@ -55,12 +55,12 @@
     width: auto
     min-width: 100%
     height: auto
-    min-height: 100%
+    min-height: 90vh
     padding: 0
     border: 0
     outline: none
     margin: 0
-    background: transparent
+    background: #fafafa
     font: getFont()
     font-kerning: normal
     letter-spacing: normal
@@ -78,7 +78,11 @@
     opacity: 1
 
     @media all and (min-width: 0vw)
-      display: block
+      display: flex
+      flex-flow: column nowrap
+      justify-content: center
+      align-content: stretch
+      align-items: stretch
       width: 100%
       width: 100vw
       min-width: auto
@@ -90,12 +94,16 @@
   &__layout
     position: relative
     display: block
+    margin: 0
+
+  &__layout
     margin: 0 auto
 
   &__section
     padding: 0
 
   &__layout
+    max-width: px2em(708)
     padding: 0 px2em($pageLayout.marginPage[$pageLayout.default])
 
     for $_layout, $i in $pageLayout.screens

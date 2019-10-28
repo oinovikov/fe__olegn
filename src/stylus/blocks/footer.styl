@@ -1,0 +1,84 @@
+// footer
+
+.footer
+  position: relative
+  flex: 0 0 auto
+  display: block
+  padding: 0
+  margin: 0
+
+  &__body
+  &__nav
+  &__menu
+  &__item
+    position: relative
+    display: block
+    padding: 0
+    margin: 0
+
+  &__body
+    padding: 1em 0 6em
+
+  &__menu
+    display: flex
+    flex-flow: column wrap
+    justify-content: flex-start
+    align-content: flex-start
+    align-items: flex-start
+    font: normal normal 12pt/1.5em 'IBM Plex Mono', monospace
+    transition: all .64s ease-out .24s
+    transform: translateY(0em)
+
+    .{$pageRootClassName}_state_loading &
+      opacity: 0
+      transition: none
+      transform: translateY(-1em)
+
+    .{$pageRootClassName}_state_loaded &
+      opacity: 1
+      transform: translateY(0em)
+
+    @media all and (min-width: 16.5em)
+      flex-direction: row
+
+  &__item
+    margin: .5em 0 0
+
+    @media all and (min-width: 16.5em)
+      margin-right: 2em
+
+  &__link
+    position: relative
+    z-index: 1
+    display: inline-block
+    padding: 0 .25em .125em
+    margin: 0 -.25em 0
+    font-weight: 400
+    color: rgba(0, 0, 0, .87)
+    letter-spacing: .02em
+    text-decoration: none
+    cursor: pointer
+    transition: color .12s ease 0s
+
+    &:hover
+      color: #fff
+      transition: color .12s ease .12s
+
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: -1
+      display: block
+      background-color: #212121
+      visibility: hidden
+      transition: all .24s ease
+      transform-origin: left center
+      transform: scaleX(0)
+
+    &:hover::before
+      visibility: visible
+      transform: scaleX(1)

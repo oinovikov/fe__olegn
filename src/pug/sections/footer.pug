@@ -1,2 +1,9 @@
 footer(class=`${$pageRootClassName}__section`)
-    div(class=`${$pageRootClassName}__layout`) I`m footer
+    div.footer
+        div(class=`${$pageRootClassName}__layout`)
+            div.footer__body
+                aside.footer__nav
+                    ul.footer__menu
+                        for $contact in $aside
+                            li.footer__item
+                                a.footer__link(id=$contact.id ? $contact.id : null, href=$contact.link ? $contact.link : null, target=$contact.link ? "_blank" : null)= $contact.label

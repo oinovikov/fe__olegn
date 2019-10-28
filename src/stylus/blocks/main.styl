@@ -1,0 +1,110 @@
+// main
+
+.main
+  position: relative
+  flex: 0 0 auto
+  display: block
+  padding: 0
+  margin: 0
+
+  &__body
+  &__paragraph
+    position: relative
+    display: block
+    padding: 0
+    margin: 0
+
+  &__body
+    padding: 1.5em 0
+    font-weight: 500
+    line-height: 1.75em
+    color: rgba(0, 0, 0, .87)
+    letter-spacing: .02em
+    opacity: 1
+    transition: all .64s ease-out .24s
+    transform: translateY(0em)
+
+    .{$pageRootClassName}_state_loading &
+      opacity: 0
+      transition: none
+      transform: translateY(1em)
+
+    .{$pageRootClassName}_state_loaded &
+      opacity: 1
+      transform: translateY(0em)
+
+    @media all and (min-width: 30em)
+      line-height: 2em
+
+  &__paragraph
+    margin-top: .5rem
+    font-size: 1em
+
+    @media all and (min-width: 30em)
+      margin-top: .75rem
+      font-size: 1.25em
+
+    &:first-child
+      margin-top: 0
+
+
+  &__link
+    position: relative
+    z-index: 1
+    display: inline-block
+    padding: 0 .25em .125em
+    margin: 0 -.25em 0
+    color: rgba(0, 0, 0, .87)
+    text-decoration: none
+    cursor: pointer
+    transition: color .1s ease 0s
+
+    &::before
+      content: ''
+      position: absolute
+      top: 100%
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: -1
+      display: block
+      background-color: #212121
+      visibility: hidden
+      transition: all .2s ease
+
+    &::after
+      content: ''
+      position: absolute
+      right: .25em
+      bottom: .125rem
+      left: .25em
+      z-index: -1
+      display: block
+      height: .125rem
+      background-color: rgba(0, 0, 0, .38)
+      transition: all .1s ease .2s
+
+    &:hover
+    &:focus
+      color: #fff
+      transition: color .1s ease .1s
+
+    &:hover::before
+    &:focus::before
+      top: 0
+      visibility: visible
+
+    &:hover::after
+    &:focus::after
+      right: 0
+      bottom: 0
+      left: 0
+      height: .25rem
+      background-color: #212121
+      transition: all .2s ease
+
+
+@keyframes appStateLoading_headerDesc
+  from
+    transform: translateY(1em)
+    opacity: 0
