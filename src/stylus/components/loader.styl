@@ -1,0 +1,86 @@
+// loader
+
+.loader
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 999
+  display: flex
+  flex-flow: row nowrap
+  justify-content: center
+  align-content: center
+  align-items: center
+  padding: 0
+  margin: 0
+  background-color: #fff
+  visibility: hidden
+
+  .{$pageRootClassName}_state_loading &
+  .{$pageRootClassName}_state_ready &
+    visibility: visible
+
+  &__container
+    position: relative
+    z-index: 1
+    flex: 0 0 auto
+    display: block
+    height: 2rem
+    padding: 0 .5rem
+    margin: auto
+    font: 500 normal 0.825em/2rem 'IBM Plex Mono',monospace
+    color: #fff
+    letter-spacing: .05em
+    text-transform: uppercase
+    vertical-align: bottom
+
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: -2
+      display: block
+      padding: 0
+      margin: 0
+      background-color: #000
+      animation: appStateWait_before .15s ease-in-out 0s normal 1
+
+    &::after
+      content: ''
+      position: absolute
+      top: 1.75rem
+      right: .25rem
+      bottom: .25rem
+      left: .25rem
+      z-index: -1
+      display: block
+      background-color: #fff
+      animation: appStateWait_after .3s ease-in-out 0s normal 1
+
+@keyframes appStateWait_before
+  0%
+    top: 1.75rem
+    right: 50%
+    left: 50%
+
+  50%
+    top: 1.75rem
+    right: 0
+    left: 0
+
+  100%
+    top: 0
+
+@keyframes appStateWait_after
+  0%
+    top: 0
+
+  50%
+    top: 0
+
+  100%
+    top: 1.75rem

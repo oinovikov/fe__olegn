@@ -8,14 +8,18 @@ html(class=$pageRootClassName, lang="ru")
         meta(name="viewport", content="width=device-width, initial-scale=1.0, shrink-to-fit=no, viewport-fit=cover, minimal-ui")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
 
+        for $name, $content in $meta
+            meta(name=$name, content=$content)
+
         link(rel="stylesheet", href=$fontSrc)
         link(rel="stylesheet", href="css/common.css")
 
         script(src="js/common.js")
 
-        title Document
-    body(class=`${$pageRootClassName}__body`, itemid="localhost:8000", itemscope, itemtype="http://schema.org/SocialMediaPosting")
+        title= $title
+    body(class=`${$pageRootClassName}__body`)
         include sections/header
         include sections/main
         include sections/footer
-    include sections/shadows
+        include blocks/counters/yandex
+        include blocks/counters/google
